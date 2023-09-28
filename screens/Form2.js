@@ -64,6 +64,29 @@ export default function Form2({ onBack, onNext }) {
   };
 
   const onSave = () => {
+    if (!validateFirstName()) {
+      Alert.alert(
+        "Invalid First Name",
+        "Please enter a valid first name (2-50 alphabetic characters)."
+      );
+      return;
+    }
+
+    if (!validateLastName()) {
+      Alert.alert(
+        "Invalid Last Name",
+        "Please enter a valid last name (alphabetic characters)."
+      );
+      return;
+    }
+
+    if (!validateAddress()) {
+      Alert.alert(
+        "Invalid Address",
+        "Address must be at least 10 characters long."
+      );
+      return;
+    }
     const data = {
       firstName,
       lastName,

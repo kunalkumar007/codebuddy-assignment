@@ -32,7 +32,6 @@ export default function Form1({ onNext }) {
       Alert.alert("Invalid Email", "Please enter a valid email address.");
       return;
     }
-    console.log(validatePassword());
     if (!validatePassword()) {
       Alert.alert(
         "Invalid Password",
@@ -48,6 +47,17 @@ export default function Form1({ onNext }) {
   };
 
   const onSave = () => {
+    if (!validateEmail()) {
+      Alert.alert("Invalid Email", "Please enter a valid email address.");
+      return;
+    }
+    if (!validatePassword()) {
+      Alert.alert(
+        "Invalid Password",
+        "Password must contain at least 2 uppercase letters, 2 lowercase letters, 2 digits, and 2 special characters, and be at least 8 characters long."
+      );
+      return;
+    }
     const data = {
       emailId: email,
       password,
